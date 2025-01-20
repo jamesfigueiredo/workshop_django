@@ -1,0 +1,45 @@
+# Arquivos do ambiente virtual
+venv/
+env/
+*.pyc
+*.pyo
+__pycache__/
+
+# Configurações de IDEs e ferramentas
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de log
+*.log
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Migrations que você não deseja versionar
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Arquivos de banco de dados
+db.sqlite3
+*.db
+
+# Arquivos estáticos e media
+staticfiles/
+media/
+
+# Arquivos de configuração sensíveis
+*.env
+.env.*
+
+# Arquivos gerados pelo coletstatic
+static/
+
+# Arquivos de build do Python
+build/
+dist/
+
+# Arquivos do Docker (se aplicável)
+docker-compose.override.yml
