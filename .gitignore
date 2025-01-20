@@ -43,3 +43,4 @@ dist/
 
 # Arquivos do Docker (se aplicável)
 docker-compose.override.yml
+Dockerfile
