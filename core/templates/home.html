@@ -4,60 +4,6 @@
 <div class="container mt-4">
     <h1 class="text-center mb-4">Produtos Disponíveis</h1>
 
-    <!-- Formulário de Filtros -->
-    <div class="card mb-4 shadow">
-        <div class="card-body">
-            <h5 class="card-title">Filtrar Produtos</h5>
-            <form method="get" action="{% url 'product_list' %}">
-                <div class="row">
-                    <!-- Filtro por Nome -->
-                    <div class="col-md-3">
-                        <label for="name" class="form-label">Nome</label>
-                        <input type="text" class="form-control" id="name" name="name" value="{{ request.GET.name }}">
-                    </div>
-
-                    <!-- Filtro por Marca -->
-                    <div class="col-md-3">
-                        <label for="brand" class="form-label">Marca</label>
-                        <select class="form-select" id="brand" name="brand">
-                            <option value="">Todas</option>
-                            {% for brand in brands %}
-                                <option value="{{ brand.id }}" {% if request.GET.brand == brand.id|stringformat:"s" %}selected{% endif %}>
-                                    {{ brand.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <!-- Filtro por Categoria -->
-                    <div class="col-md-3">
-                        <label for="category" class="form-label">Categoria</label>
-                        <select class="form-select" id="category" name="category">
-                            <option value="">Todas</option>
-                            {% for category in categories %}
-                                <option value="{{ category.id }}" {% if request.GET.category == category.id|stringformat:"s" %}selected{% endif %}>
-                                    {{ category.name }}
-                                </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-
-                    <!-- Filtro por Número de Série -->
-                    <div class="col-md-3">
-                        <label for="serie_number" class="form-label">Número de Série</label>
-                        <input type="text" class="form-control" id="serie_number" name="serie_number" value="{{ request.GET.serie_number }}">
-                    </div>
-                </div>
-
-                <!-- Botões de Ação -->
-                <div class="mt-3 text-center">
-                    <button type="submit" class="btn btn-primary">Filtrar</button>
-                    <a href="{% url 'product_list' %}" class="btn btn-secondary">Limpar Filtros</a>
-                </div>
-            </form>
-        </div>
-    </div>
-
     <!-- Lista de Produtos -->
     <div class="row">
         {% for product in products %}
@@ -136,4 +82,5 @@
         </ul>
     </nav>
 </div>
+{% include 'components/_pagination.html' %}
 {% endblock %}
