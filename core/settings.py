@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'brands',
     'categories',
     'products',
+    'models',
     'sales',
 ]
 
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [''],
+        'DIRS': ['core/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +128,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # Diretório físico onde os arquivos de mídia serão salvos
+MEDIA_URL = '/media/'  # URL para acessar arquivos de mídia

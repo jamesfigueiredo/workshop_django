@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+PDV - Modelos
+{% endblock %}
+
+{% block content %}
+
+<div class="row mb-3">
+  <div class="col-md-6">
+    <form method="get" action="{% url 'model_list' %}">
+      <div class="input-group">
+        <input type="text" class="form-control" name="name" placeholder="Nome" value="{{ request.GET.name }}">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <a href="{% url 'model_create' %}" class="btn btn-success float-end">
+      <i class="bi bi-plus"></i> Novo Modelo
+    </a>
+  </div>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for model in models %}
+      <tr>
+        <td>
+          <a href="{% url 'model_detail' model.id %}" class="text-primary fw-semibold">
+            {{ model.id }}
+          </a>
+        </td>
+        <td>{{ model.name }}</td>
+        <td>{{ model.description }}</td>
+        <td>
+          <a href="{% url 'model_detail' model.id %}" class="btn btn-info btn-sm">
+            <i class="bi bi-eye"></i>
+          </a>
+
+          <a href="{% url 'model_update' model.id %}" class="btn btn-warning btn-sm">
+            <i class="bi bi-pencil"></i>
+          </a>
+
+          <a href="{% url 'model_delete' model.id %}" class="btn btn-danger btn-sm btn-delete">
+            <i class="bi bi-trash"></i>
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

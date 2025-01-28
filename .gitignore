@@ -23,12 +23,12 @@ Thumbs.db
 !**/migrations/__init__.py
 
 # Arquivos de banco de dados
-db.sqlite3
-*.db
+#db.sqlite3
+#*.db
 
 # Arquivos estáticos e media
-staticfiles/
-media/
+#staticfiles/
+#media/
 
 # Arquivos de configuração sensíveis
 *.env
