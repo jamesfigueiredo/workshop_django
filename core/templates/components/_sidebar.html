@@ -44,9 +44,13 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="nav-link px-0 align-middle">
-                  <i class="bi bi-power fs-4"></i>
-                  <span class="ms-1">Sair</span>
+                  <form action="{% url 'logout' %}" method="post" class="nav-link px-0 align-middle">
+                      {% csrf_token %}
+                      <button type="submit" class="nav-link px-0 align-middle">
+                        <i class="bi bi-power fs-4"></i>
+                        <span class="ms-1">Sair</span>
+                      </button>
+                  </form>
                 </a>
               </li>
           </ul>
